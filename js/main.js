@@ -97,54 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start typing effect
     setTimeout(type, 1000);
   }
-
-  // Form submission
-  const contactForm = document.querySelector('.contact-form');
-  
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // In a real application, you would send the form data to a server
-      // For now, we'll just show a success message
-      const formData = new FormData(contactForm);
-      let formValues = {};
-      
-      for (let [key, value] of formData.entries()) {
-        formValues[key] = value;
-      }
-      
-      console.log('Form submitted:', formValues);
-      
-      // Show success message
-      const formGroups = contactForm.querySelectorAll('.form-group');
-      const submitButton = contactForm.querySelector('button[type="submit"]');
-      
-      const successMessage = document.createElement('div');
-      successMessage.className = 'success-message';
-      successMessage.style.backgroundColor = 'rgba(161, 68, 235, 0.1)';
-      successMessage.style.color = '#a144eb';
-      successMessage.style.padding = '1rem';
-      successMessage.style.borderRadius = '8px';
-      successMessage.style.marginTop = '1rem';
-      successMessage.style.textAlign = 'center';
-      successMessage.style.fontWeight = '500';
-      successMessage.textContent = 'Mensagem enviada com sucesso! Entrarei em contato em breve.';
-      
-      // Clear form fields
-      contactForm.reset();
-      
-      // Replace button with success message
-      submitButton.style.display = 'none';
-      contactForm.appendChild(successMessage);
-      
-      // Restore form after 5 seconds
-      setTimeout(() => {
-        successMessage.remove();
-        submitButton.style.display = '';
-      }, 5000);
-    });
-  }
 });
 
 // Header scroll effect
